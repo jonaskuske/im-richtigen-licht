@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="de" class="w-full h-full font-sans">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Im richtigen Licht</title>
+    <link
+      rel="icon"
+      href="data:image/png;base64,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"
+    />
+
+    <!-- load Inter font -->
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
+    <!-- load tailwind for utility classes -->
+    <link href="https://unpkg.com/tailwindcss@1.2.0-canary.5/dist/tailwind.min.css" rel="stylesheet" />
+    <!-- style adjustments and custom utilities -->
+    <style>
+      *,
+      ::before,
+      ::after {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      }
+      [v-cloak] {
+        display: none;
+      }
+      html {
+        scroll-behavior: smooth;
+        --scroll-behavior: smooth;
+        scrollbar-width: thin;
+        scrollbar-color: #fff #000;
+      }
+      .scrollbar ::-webkit-scrollbar {
+        background: #000;
+        width: 4px;
+      }
+      .scrollbar ::-webkit-scrollbar-thumb {
+        background: #fff;
+        border-radius: 4px;
+      }
+      .grid-rows-3 {
+        grid-template-rows: repeat(2, minmax(0, 1fr));
+      }
+      .row-span-2 {
+        grid-row: span 2 / span 2;
+      }
+      .aspect-1by1::after {
+        content: '';
+        display: block;
+        padding-top: 100%;
+      }
+      .aspect-3by2::after {
+        content: '';
+        display: block;
+        padding-top: 66.6667%;
+      }
+      .group:hover .group-hover\:opacity-100 {
+        opacity: 1;
+      }
+      .group:focus .group-focus\:opacity-100 {
+        opacity: 1;
+      }
+      .duration-2000 {
+        transition-duration: 2000ms;
+      }
+      @media (min-width: 768px) {
+        .md\:grid-rows-2 {
+          grid-template-rows: repeat(2, minmax(0, 1fr));
+        }
+        .md\:aspect-9by4::after {
+          content: '';
+          display: block;
+          padding-top: 44.444444%;
+        }
+      }
+    </style>
+
+    <script>
+      const products = [
+        {
+          heading: 'The can',
+          subheading: 'Gebürstetes Aluminium, genau richtig dosiert.',
+          images: [],
+        },
+        {
+          heading: 'The container',
+          subheading: 'Hochglanzbeschichtung für Süßes und Saures',
+          images: ['images/asia_1.jpg', 'images/asia_2.jpg', 'images/asia_3.jpg'],
+        },
+        {
+          heading: 'The box',
+          subheading: '',
+          images: ['images/burger_1.jpg', 'images/burger_2.jpg', 'images/burger_3.jpg'],
+        },
+        {
+          heading: 'The bag',
+          subheading: '',
+          images: [],
+        },
+      ];
+    </script>
+  </head>
+
+  <body class="min-h-full">
+    <div id="site" v-cloak>
+      <header class="fixed z-10 w-full h-16 py-2 shadow-md bg-black text-white">
+        <div class="container px-8 mx-auto h-full flex items-center">
+          <a
+            href="#"
+            class="mr-auto font-light group focus:outline-none cursor-pointer border-b border-transparent focus:border-white py-1"
+            @click="selected = 0; highlight = null;"
+          >
+            <!-- prettier-ignore -->
+            <svg class="w-6 fill-current inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 68"><path d="M38 51v15l-1 1h-6l-1-1V51h8zM22 37h24V13H22v24zm12-19a7 7 0 110 14 7 7 0 010-14z"/><path d="M58 7h-1l-8 3 3-8V1H16v1l3 8-8-3h-1v36h1l8-3-3 8v1h35a1 1 0 001-2l-3-7 8 3a1 1 0 001-1V8 7zM48 38l-1 1H21l-1-1V12l1-1h26l1 1v26z"/></svg>
+            <span
+              class="hidden md:inline opacity-0 group-hover:opacity-100  group-focus:opacity-100 transition-opacity duration-500 ease-in-out"
+            >
+              Im richtigen Licht
+            </span>
+          </a>
+          <nav>
+            <ul>
+              <li
+                v-for="(product, index) in products"
+                class="inline-block text-xs md:text-base"
+                :class="[{ 'ml-2': index !== 0 }]"
+              >
+                <button
+                  @click="selected = index; highlight = null;"
+                  class="border-b border-transparent focus:border-white focus:outline-none lowercase"
+                  :class="index === selected ? 'font-bold' : 'font-thin hover:border-white'"
+                >
+                  {{ product.heading }}
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <main class="w-full pt-16">
+        <div class="relative aspect-1by1 md:aspect-9by4 bg-black">
+          <transition
+            appear
+            mode="out-in"
+            enter-class="opacity-0"
+            enter-active-class="transition-opacity duration-2000 ease-in-out"
+            leave-to-class="opacity-0"
+            leave-active-class="transition-opacity duration-300 ease-in-out"
+          >
+            <transition-group
+              tag="div"
+              :key="selected"
+              move-class="transition-transform duration-500 ease-in-out"
+              class="grid grid-rows-3 md:grid-rows-2 md:grid-cols-3 gap-2 absolute w-full h-full overflow-hidden"
+            >
+              <picture
+                v-for="(src, index) in images"
+                @click="highlight = src"
+                :key="src"
+                :class="{ 'col-span-2 row-span-2': index === 0 }"
+                class="relative aspect-3by2 text-white"
+              >
+                <source :srcset="src.replace('jpg', 'webp')" type="image/webp" />
+                <img :src="src" class="absolute w-full h-full" />
+              </picture>
+            </transition-group>
+          </transition>
+        </div>
+
+        <transition
+          appear
+          mode="out-in"
+          enter-class="opacity-0 transform translate-y-12"
+          enter-active-class="transition duration-1000 ease-in-out"
+          leave-to-class="opacity-0"
+          leave-active-class="transition-opacity duration-300 ease-in-out"
+        >
+          <section class="container px-8 mx-auto pt-8 mb-48" :key="selected">
+            <h1 class="text-center leading-tight text-4xl md:text-6xl font-bold mb-0 lowercase">
+              {{ product.heading }}
+            </h1>
+            <p class="text-center text-xl md:text-2xl mb-6">
+              {{ product.subheading }}
+            </p>
+
+            <p class="text-center">
+              <a
+                href="#description"
+                class="px-4 py-1 rounded-full shadow text-white bg-blue-600 hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:shadow-outline"
+              >
+                Jetzt recyclen
+              </a>
+            </p>
+          </section>
+        </transition>
+
+        <section class="container px-8 mx-auto pt-24 -mt-24" id="description">
+          <h2 class="text-2xl font-medium mb-1">Im richtigen Licht</h2>
+          <p class="max-w-3xl mb-6">
+            Fotografie-Projekt von
+            <a href="https://jonaskuske.com" class="underline focus:text-blue-600 focus:outline-none">Jonas Kuske</a>,
+            <a href="https://dmp-magazin.de/team#marvin" class="underline focus:text-blue-600 focus:outline-none">
+              Marvin Homann
+            </a>
+            und
+            <a href="https://riekehelmers.com" class="underline focus:text-blue-600 focus:outline-none">
+              Rieke Helmers
+            </a>
+          </p>
+          <p class="max-w-3xl mb-8">
+            Tagtäglich produzieren Menschen Unmengen an Müll – Müll der sogar noch verwertbar ist. Günstige Konsumgüter
+            und insbesondere deren Verpackungen sind mit einem Wegwerfgedanken behaftet – trotz aufwendiger und nicht
+            nachhaltiger Materialgewinnung, zeitaufwändig gestalteten Verpackungen und durch komplexe Industrieprozesse
+            ermöglichte Herstellung werden sie für wertlos gehalten. Deshalb haben wir uns dazu entschieden, gerade
+            diesen Müll zu bewerben und fotografisch gut in Szene zu setzen – wie man es sonst eher von teureren
+            Premiumprodukten wie beispielsweise Highend-Notebooks kennt.<br />
+            Ziel ist es, den*die Betrachter*in mit einer fotografisch guten Aufnahme zu begeistern, bis ihm*ihr
+            auffällt: „Moment mal, das sieht aus wie etwas, das ich andauernd achtlos entsorge!“.<br />
+            <br />
+            Im Idealfall brennt sich dieses Bild im Kopf ein und wirkt dem nächsten Wegwerfimpuls entgegen – schließlich
+            könnten die letzten Reste der Nudelbox genauso gut in der Speisenkarte des Lieblingsrestaurants beworben
+            werden, wenn man sie nur anders präsentiert.
+          </p>
+
+          <hr class="mb-8" />
+
+          <p class="max-w-3xl mb-4">
+            Digitale Medienproduktion<br />
+            Hochschule Bremerhaven<br />
+            BA7 Fotografie, Ralf Schreier
+          </p>
+
+          <ul class="mb-4 leading-loose">
+            <li>
+              Jonas Kuske, 34728
+              <a
+                class="leading-none inline-block bg-gray-300 hover:bg-gray-400 focus:bg-gray-700 focus:text-gray-200 focus:outline-none focus:shadow-outline text-gray-700 rounded-md px-2 py-1"
+                href="mailto:jkuske@studenten.hs-bremerhaven.de"
+                >✉ Email</a
+              >
+            </li>
+            <li>
+              Marvin Homann, 33853
+              <a
+                class="leading-none inline-block bg-gray-300 hover:bg-gray-400 focus:bg-gray-700 focus:text-gray-200 focus:outline-none focus:shadow-outline text-gray-700 rounded-md px-2 py-1"
+                href="mailto:marvin.homann1@studentent.hs-bremerhaven.de"
+                >✉ Email</a
+              >
+            </li>
+            <li>
+              Rieke Helmers, 34505
+              <a
+                class="leading-none inline-block bg-gray-300 hover:bg-gray-400 focus:bg-gray-700 focus:text-gray-200 focus:outline-none focus:shadow-outline text-gray-700 rounded-md px-2 py-1"
+                href="mailto:rhelmers@studenten.hs-bremerhaven.de"
+                >✉ Email</a
+              >
+            </li>
+          </ul>
+
+          <p>© 2020</p>
+        </section>
+
+        <section class="container px-8 mx-auto mt-56 mb-12 text-gray-500">
+          <h2 class="mb-4 font-bold">Impressum</h2>
+
+          <h3 class="mb-2 font-medium">Angaben gemäß §5 TMG</h3>
+          <p class="mb-4">
+            Jonas Kuske<br />
+            Sielstraße 5<br />
+            27568 Bremerhaven<br />
+            +49 160 333 69 48<br />
+            mail@jonaskuske.com
+          </p>
+
+          <h3 class="mb-2 font-medium">
+            Verantwortlich für Inhalte gemäß 55 Abs. 2 RStV
+          </h3>
+          <p class="mb-4">
+            Jonas Kuske<br />
+            Sielstraße 5<br />
+            27568 Bremerhaven
+          </p>
+
+          <h3 class="mb-2 font-medium">Haftungsauschluss</h3>
+          <h4 class="mb-2">Haftung für Inhalte</h4>
+
+          <p class="mb-4">
+            Die Inhalte dieser Seite wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und
+            Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. Als Diensteanbieter sind wir gemäß §7
+            Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§8 bis 10
+            TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde
+            Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+            Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen
+            bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer
+            konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werde ich diese
+            Inhalte umgehend entfernen.
+          </p>
+
+          <h4 class="mb-2">Haftung für Links</h4>
+          <p class="mb-4">
+            Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben.
+            Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten
+            Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten
+            wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum
+            Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist
+            jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von
+            Rechtsverletzungen werde ich derartige Links umgehend entfernen.
+          </p>
+
+          <h4 class="mb-2">Urheberrecht</h4>
+          <p class="mb-8">
+            Die durch die Seitenbetreiber erstellten bzw. verwendeten Inhalte und Werke auf diesen Seiten unterliegen
+            dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung
+            außerhalb der Grenzen des Urheberrechtes bedürfen der Zustimmung des jeweiligen Autors bzw. Erstellers.
+            Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit
+            die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet.
+            Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine
+            Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von
+            Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
+          </p>
+
+          <h2 class="mb-4 font-bold">Datenschutz</h2>
+
+          <p class="mb-2">
+            Durch die Nutzung dieser Website erklären Sie sich mit der Erhebung, Verarbeitung und Nutzung von Daten
+            gemäß der nachfolgenden Beschreibung einverstanden. Die Website kann grundsätzlich ohne Registrierung
+            besucht werden. Dabei werden folgende Daten ggf. zu statistischen Zwecken auf dem Server in sogenannten
+            "Server Log-Files" gespeichert, ohne dass diese Daten unmittelbar auf Ihre Person bezogen werden:
+          </p>
+
+          <ul class="list-disc list-inside mb-4">
+            <li>Besuchte Website</li>
+            <li>Uhrzeit zum Zeitpunkt des Zugriffes</li>
+            <li>Menge der gesendeten Daten in Bytes</li>
+            <li>Quelle/Verweis, von welchem Sie auf diese Seite gelangten</li>
+            <li>Verwendeter Browser</li>
+            <li>Verwendetes Betriebssystem</li>
+            <li>Verwendete IP-Adresse</li>
+          </ul>
+
+          <p class="mb-4">
+            Diese Websites verwendet beim Seitenaufruf automatisch Ressourcen (Webfonts, Stylesheets und Skripte), die
+            unter <a class="underline focus:text-blue-600 focus:outline-none" href="https://rsms.me">rsms.me</a> und
+            <a class="underline focus:text-blue-600 focus:outline-none" href="https://unpkg.com">unpkg</a> gehostet
+            sind. Deshalb können die oben aufgelisteten Daten auch von den jeweiligen Betreibern eingesehen werden.
+          </p>
+
+          <p class="mb-4">
+            Falls Sie die auf der Seite und im Impressum genannten Daten zur Kontaktaufnahme nutzen, so verwenden wir
+            Ihre Kontaktdaten, die wir der Absenderadresse entnehmen können, ausschließlich zur Beantwortung Ihrer
+            Anfrage; auf Wunsch löschen wir diese selbstverständlich wieder.
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <!-- detect whether browser has a permanently-visible scrollbar -->
+    <script>
+      !((doc, style) => {
+        const el = doc.body.appendChild(Object.assign(doc.createElement('div'), { style }));
+        if (el.offsetWidth - el.clientWidth > 0) doc.documentElement.className += ' scrollbar';
+        doc.body.removeChild(el);
+      })(document, 'width:100px;height:100px;overflow:scroll !important;position:absolute;top:-100vh');
+    </script>
+
+    <!-- load Vue for easier templating and transitions -->
+    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+
+    <!-- init Vue -->
+    <script>
+      new Vue({
+        el: '#site',
+        data: { highlight: null, selected: 1, products },
+        computed: {
+          product() {
+            return this.products[this.selected];
+          },
+          images() {
+            // If highlight is selected, reorder array so that highlight and the following images are first
+            const idx = this.product.images.findIndex(img => img === this.highlight);
+            if (idx > 0) return [...this.product.images.slice(idx), ...this.product.images.slice(0, idx)];
+            else return this.product.images;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
