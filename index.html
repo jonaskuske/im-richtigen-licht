@@ -54,20 +54,20 @@
         display: block;
         padding-top: 66.6667%;
       }
+      .duration-2000 {
+        transition-duration: 2000ms;
+      }
       .group:hover .group-hover\:opacity-100 {
         opacity: 1;
       }
       .group:focus .group-focus\:opacity-100 {
         opacity: 1;
       }
-      .duration-2000 {
-        transition-duration: 2000ms;
-      }
-      @media (min-width: 768px) {
-        .md\:grid-rows-2 {
+      @media (min-width: 640px) {
+        .sm\:grid-rows-2 {
           grid-template-rows: repeat(2, minmax(0, 1fr));
         }
-        .md\:aspect-9by4::after {
+        .sm\:aspect-9by4::after {
           content: '';
           display: block;
           padding-top: 44.444444%;
@@ -93,7 +93,7 @@
           images: [],
         },
         {
-          heading: 'The container',
+          heading: 'The cup',
           subheading: 'Beschichteter Zellstoff, stabil und isolierend.',
           images: ['images/asia_1.jpg', 'images/asia_2.jpg', 'images/asia_3.jpg'],
         },
@@ -111,7 +111,7 @@
             @click="selected = 0; highlight = null;"
           >
             <!-- prettier-ignore -->
-            <svg class="w-6 fill-current inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 68"><path d="M38 51v15l-1 1h-6l-1-1V51h8zM22 37h24V13H22v24zm12-19a7 7 0 110 14 7 7 0 010-14z"/><path d="M58 7h-1l-8 3 3-8V1H16v1l3 8-8-3h-1v36h1l8-3-3 8v1h35a1 1 0 001-2l-3-7 8 3a1 1 0 001-1V8 7zM48 38l-1 1H21l-1-1V12l1-1h26l1 1v26z"/></svg>
+            <svg class="w-4 sm:w-6 fill-current inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 68"><path d="M38 51v15l-1 1h-6l-1-1V51h8zM22 37h24V13H22v24zm12-19a7 7 0 110 14 7 7 0 010-14z"/><path d="M58 7h-1l-8 3 3-8V1H16v1l3 8-8-3h-1v36h1l8-3-3 8v1h35a1 1 0 001-2l-3-7 8 3a1 1 0 001-1V8 7zM48 38l-1 1H21l-1-1V12l1-1h26l1 1v26z"/></svg>
             <span
               class="hidden md:inline opacity-0 group-hover:opacity-100  group-focus:opacity-100 transition-opacity duration-500 ease-in-out"
             >
@@ -122,7 +122,7 @@
             <ul>
               <li
                 v-for="(product, index) in products"
-                class="inline-block text-xs md:text-base"
+                class="inline-block text-sm sm:text-base"
                 :class="[{ 'ml-2': index !== 0 }]"
               >
                 <a
@@ -140,7 +140,7 @@
       </header>
 
       <main class="w-full pt-16">
-        <div class="relative aspect-1by1 md:aspect-9by4 bg-black">
+        <div class="relative aspect-1by1 sm:aspect-9by4 bg-black">
           <transition
             appear
             mode="out-in"
@@ -153,7 +153,7 @@
               tag="div"
               :key="selected"
               move-class="transition-transform duration-500 ease-in-out"
-              class="grid grid-rows-3 md:grid-rows-2 md:grid-cols-3 gap-2 absolute w-full h-full overflow-hidden"
+              class="grid grid-rows-3 sm:grid-rows-2 sm:grid-cols-3 gap-2 absolute w-full h-full overflow-hidden"
             >
               <picture
                 v-for="(src, index) in images"
@@ -177,7 +177,7 @@
           leave-to-class="opacity-0"
           leave-active-class="transition-opacity duration-300 ease-in-out"
         >
-          <section class="container px-8 mx-auto pt-8 mb-48" :key="selected">
+          <section class="container px-8 mx-auto pt-8 mb-40" :key="selected">
             <h1 class="text-center leading-tight text-4xl md:text-6xl font-bold mb-0 lowercase">
               {{ product.heading }}
             </h1>
@@ -202,8 +202,8 @@
             Fotografie-Projekt von
             <a href="https://jonaskuske.com" class="underline focus:text-blue-600 focus:outline-none">Jonas Kuske</a>,
             <a href="https://dmp-magazin.de/team#marvin" class="underline focus:text-blue-600 focus:outline-none">
-              Marvin Homann
-            </a>
+              Marvin Homann</a
+            >
             und
             <a href="https://riekehelmers.com" class="underline focus:text-blue-600 focus:outline-none">
               Rieke Helmers
@@ -236,7 +236,7 @@
             <li>
               Jonas Kuske, 34728
               <a
-                class="leading-none inline-block bg-gray-300 hover:bg-gray-400 focus:bg-gray-700 focus:text-gray-200 focus:outline-none focus:shadow-outline text-gray-700 rounded-md px-2 py-1"
+                class="leading-none inline-block ml-1 bg-gray-300 text-gray-900 hover:bg-gray-400 focus:bg-gray-700 focus:text-gray-200 focus:outline-none focus:shadow-outline rounded-md px-2 py-1"
                 href="mailto:jkuske@studenten.hs-bremerhaven.de"
                 >✉ Email</a
               >
@@ -244,7 +244,7 @@
             <li>
               Marvin Homann, 33853
               <a
-                class="leading-none inline-block bg-gray-300 hover:bg-gray-400 focus:bg-gray-700 focus:text-gray-200 focus:outline-none focus:shadow-outline text-gray-700 rounded-md px-2 py-1"
+                class="leading-none inline-block ml-1 bg-gray-300 text-gray-900 hover:bg-gray-400 focus:bg-gray-700 focus:text-gray-200 focus:outline-none focus:shadow-outline rounded-md px-2 py-1"
                 href="mailto:marvin.homann1@studentent.hs-bremerhaven.de"
                 >✉ Email</a
               >
@@ -252,7 +252,7 @@
             <li>
               Rieke Helmers, 34505
               <a
-                class="leading-none inline-block bg-gray-300 hover:bg-gray-400 focus:bg-gray-700 focus:text-gray-200 focus:outline-none focus:shadow-outline text-gray-700 rounded-md px-2 py-1"
+                class="leading-none inline-block ml-1 bg-gray-300 text-gray-900 hover:bg-gray-400 focus:bg-gray-700 focus:text-gray-200 focus:outline-none focus:shadow-outline rounded-md px-2 py-1"
                 href="mailto:rhelmers@studenten.hs-bremerhaven.de"
                 >✉ Email</a
               >
@@ -382,7 +382,7 @@
     <script>
       new Vue({
         el: '#site',
-        data: { highlight: null, selected: 1, products },
+        data: { highlight: null, selected: 0, products },
         computed: {
           product() {
             return this.products[this.selected];
