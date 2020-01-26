@@ -83,11 +83,6 @@
           images: [],
         },
         {
-          heading: 'The container',
-          subheading: 'Hochglanzbeschichtung für Süßes und Saures',
-          images: ['images/asia_1.jpg', 'images/asia_2.jpg', 'images/asia_3.jpg'],
-        },
-        {
           heading: 'The box',
           subheading: '',
           images: ['images/burger_1.jpg', 'images/burger_2.jpg', 'images/burger_3.jpg'],
@@ -96,6 +91,11 @@
           heading: 'The bag',
           subheading: '',
           images: [],
+        },
+        {
+          heading: 'The container',
+          subheading: 'Hochglanzbeschichtung für Süßes und Saures',
+          images: ['images/asia_1.jpg', 'images/asia_2.jpg', 'images/asia_3.jpg'],
         },
       ];
     </script>
@@ -125,13 +125,14 @@
                 class="inline-block text-xs md:text-base"
                 :class="[{ 'ml-2': index !== 0 }]"
               >
-                <button
+                <a
+                  href="#"
                   @click="selected = index; highlight = null;"
                   class="border-b border-transparent focus:border-white focus:outline-none lowercase"
                   :class="index === selected ? 'font-bold' : 'font-thin hover:border-white'"
                 >
                   {{ product.heading }}
-                </button>
+                </a>
               </li>
             </ul>
           </nav>
@@ -362,6 +363,16 @@
         if (el.offsetWidth - el.clientWidth > 0) doc.documentElement.className += ' scrollbar';
         doc.body.removeChild(el);
       })(document, 'width:100px;height:100px;overflow:scroll !important;position:absolute;top:-100vh');
+    </script>
+
+    <!-- load smoothscroll polyfills if neccessary (Safari) -->
+    <script>
+      (d => {
+        if ('scrollBehavior' in document.documentElement.style) return;
+        const insert = src => d.head.append(Object.assign(d.createElement('script'), { src }));
+        insert('https://unpkg.com/smoothscroll-anchor-polyfill');
+        insert('https://unpkg.com/smoothscroll-polyfill/dist/smoothscroll.min.js');
+      })(document);
     </script>
 
     <!-- load Vue for easier templating and transitions -->
