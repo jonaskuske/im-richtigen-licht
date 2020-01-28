@@ -12,7 +12,7 @@
     <link rel="manifest" href="icons/site.webmanifest" />
     <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#000000" />
     <link rel="shortcut icon" href="icons/favicon.lightmode.ico" />
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="msapplication-TileColor" content="#000000" />
     <meta name="msapplication-config" content="icons/browserconfig.xml" />
     <meta name="theme-color" content="#ffffff" />
@@ -82,32 +82,6 @@
         }
       }
     </style>
-
-    <!-- list of products and their images -->
-    <script>
-      window.products = [
-        {
-          heading: 'The can',
-          subheading: 'Gewalztes Aluminium, leicht und robust.',
-          images: ['images/hemi_1.jpg', 'images/hemi_2.jpg', 'images/hemi_3.jpg'],
-        },
-        {
-          heading: 'The box',
-          subheading: 'Kompakter Karton, handlich und nachhaltig.',
-          images: ['images/burger_1.jpg', 'images/burger_2.jpg', 'images/burger_3.jpg'],
-        },
-        {
-          heading: 'The bag',
-          subheading: 'Mehrschichtige Kunststofffolie, luftdicht und reißfest.',
-          images: ['images/chips_1.jpg', 'images/chips_2.jpg', 'images/chips_3.jpg'],
-        },
-        {
-          heading: 'The cup',
-          subheading: 'Beschichteter Zellstoff, stabil und isolierend.',
-          images: ['images/asia_1.jpg', 'images/asia_2.jpg', 'images/asia_3.jpg'],
-        },
-      ];
-    </script>
   </head>
 
   <body class="min-h-full">
@@ -394,16 +368,40 @@
     <!-- load Vue for easier templating + transitions and favicon-mode-switcher for dark mode icons -->
     <script type="module">
       import Vue from 'https://unpkg.com/vue/dist/vue.esm.browser.min.js';
-      import faviconModeSwitcher from 'https://unpkg.com/favicon-mode-switcher/dist/index.min.mjs';
+      import faviconModeSwitcher from 'https://unpkg.com/favicon-mode-switcher?module';
 
       faviconModeSwitcher(document.querySelectorAll('link[href*="lightmode"]'));
+
+      // List of products and their images. Images also need to exist as .webp version
+      const products = [
+        {
+          heading: 'The can',
+          subheading: 'Gewalztes Aluminium, leicht und robust.',
+          images: ['images/hemi_1.jpg', 'images/hemi_2.jpg', 'images/hemi_3.jpg'],
+        },
+        {
+          heading: 'The box',
+          subheading: 'Kompakter Karton, handlich und nachhaltig.',
+          images: ['images/burger_1.jpg', 'images/burger_2.jpg', 'images/burger_3.jpg'],
+        },
+        {
+          heading: 'The bag',
+          subheading: 'Mehrschichtige Kunststofffolie, luftdicht und reißfest.',
+          images: ['images/chips_1.jpg', 'images/chips_2.jpg', 'images/chips_3.jpg'],
+        },
+        {
+          heading: 'The cup',
+          subheading: 'Beschichteter Zellstoff, stabil und isolierend.',
+          images: ['images/asia_1.jpg', 'images/asia_2.jpg', 'images/asia_3.jpg'],
+        },
+      ];
 
       // Product image component, needs local state "loaded" to only transition-in once ready
       Vue.component('product-image', { props: ['src'], data: () => ({ loaded: false }) });
 
       new Vue({
         el: '#site',
-        data: { highlight: null, selected: 0, products: window.products },
+        data: { highlight: null, selected: 0, products },
         computed: {
           product() {
             return this.products[this.selected];
