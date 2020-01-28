@@ -23,7 +23,7 @@
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
       }
       [v-cloak] {
-        display: none;
+        opacity: 0;
       }
       html {
         scroll-behavior: smooth;
@@ -104,7 +104,7 @@
   </head>
 
   <body class="min-h-full">
-    <div id="site" v-cloak>
+    <div id="site">
       <header class="fixed z-10 w-full h-16 py-2 shadow-md bg-black text-white">
         <div class="container px-8 mx-auto h-full flex items-center">
           <a
@@ -120,24 +120,26 @@
               Im richtigen Licht
             </span>
           </a>
-          <nav>
-            <ul>
-              <li
-                v-for="(product, index) in products"
-                class="inline text-sm sm:text-base"
-                :class="[{ 'ml-2': index !== 0 }]"
-              >
-                <a
-                  href="#"
-                  @click="selected = index; highlight = null;"
-                  class="border-b border-transparent focus:border-white focus:outline-none lowercase"
-                  :class="index === selected ? 'font-bold' : 'font-thin hover:border-white'"
+          <transition appear enter-class="opacity-0" enter-active-class="transition-opacity duration-1000 ease-in">
+            <nav v-cloak>
+              <ul>
+                <li
+                  v-for="(product, index) in products"
+                  class="inline text-sm sm:text-base"
+                  :class="[{ 'ml-2': index !== 0 }]"
                 >
-                  {{ product.heading }}
-                </a>
-              </li>
-            </ul>
-          </nav>
+                  <a
+                    href="#"
+                    @click="selected = index; highlight = null;"
+                    class="border-b border-transparent focus:border-white focus:outline-none lowercase"
+                    :class="index === selected ? 'font-bold' : 'font-thin hover:border-white'"
+                  >
+                    {{ product.heading }}
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </transition>
         </div>
       </header>
 
@@ -149,6 +151,7 @@
             leave-active-class="transition-opacity duration-300 ease-in-out"
           >
             <transition-group
+              v-cloak
               tag="div"
               :key="selected"
               move-class="transition-transform duration-500 ease-in-out"
@@ -183,7 +186,7 @@
           leave-to-class="opacity-0"
           leave-active-class="transition-opacity duration-300 ease-in-out"
         >
-          <section class="container px-8 mx-auto pt-8 mb-40" :key="selected">
+          <section v-cloak class="container px-8 mx-auto pt-8 mb-40" :key="selected">
             <h1 class="text-center leading-tight text-4xl md:text-6xl font-bold mb-0 lowercase">
               {{ product.heading }}
             </h1>
