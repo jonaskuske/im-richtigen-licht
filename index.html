@@ -78,7 +78,7 @@
 
     <!-- list of products and their images -->
     <script>
-      const products = [
+      window.products = [
         {
           heading: 'The can',
           subheading: 'Gewalztes Aluminium, leicht und robust.',
@@ -393,7 +393,7 @@
 
       new Vue({
         el: '#site',
-        data: { highlight: null, selected: 0, products },
+        data: { highlight: null, selected: 0, products: window.products },
         computed: {
           product() {
             return this.products[this.selected];
