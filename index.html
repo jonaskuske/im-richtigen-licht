@@ -144,10 +144,7 @@
       <main class="w-full pt-16">
         <div class="relative aspect-1by1 sm:aspect-9by4 bg-black">
           <transition
-            appear
             mode="out-in"
-            enter-class="opacity-0"
-            enter-active-class="transition-opacity duration-2000 ease-in-out"
             leave-to-class="opacity-0"
             leave-active-class="transition-opacity duration-300 ease-in-out"
           >
@@ -157,16 +154,23 @@
               move-class="transition-transform duration-500 ease-in-out"
               class="grid grid-rows-3 sm:grid-rows-2 sm:grid-cols-3 gap-2 absolute w-full h-full overflow-hidden"
             >
-              <picture
+              <product-image
+                inline-template
+                @click.native="highlight = src"
                 v-for="(src, index) in images"
-                @click="highlight = src"
+                :src="src"
                 :key="src"
                 :class="{ 'col-span-2 row-span-2': index === 0 }"
-                class="relative aspect-3by2 text-white"
               >
-                <source :srcset="src.replace('jpg', 'webp')" type="image/webp" />
-                <img :src="src" class="absolute w-full h-full" />
-              </picture>
+                <div class="block relative aspect-3by2">
+                  <transition enter-class="opacity-0" enter-active-class="transition-opacity duration-2000 ease-in-out">
+                    <picture v-show="loaded">
+                      <source :srcset="src.replace('jpg', 'webp')" type="image/webp" />
+                      <img @load="loaded = true" :src="src" class="absolute w-full h-full" />
+                    </picture>
+                  </transition>
+                </div>
+              </product-image>
             </transition-group>
           </transition>
         </div>
@@ -378,10 +382,12 @@
     </script>
 
     <!-- load Vue for easier templating and transitions -->
-    <script src="https://unpkg.com/vue/dist/vue.min.js"></script>
+    <script type="module">
+      import Vue from 'https://unpkg.com/vue/dist/vue.esm.browser.min.js';
 
-    <!-- init Vue -->
-    <script>
+      // Product image component, needs local state "loaded" to only transition-in once ready
+      Vue.component('product-image', { props: ['src'], data: () => ({ loaded: false }) });
+
       new Vue({
         el: '#site',
         data: { highlight: null, selected: 0, products },
