@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
     <title>Im richtigen Licht</title>
 
     <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png" />
@@ -19,8 +20,9 @@
 
     <!-- load Inter font -->
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-    <!-- load tailwind for utility classes -->
-    <link href="https://unpkg.com/tailwindcss@1.2.0-canary.5/dist/tailwind.min.css" rel="stylesheet" />
+
+    <!-- load Tailwind for utility classes -->
+    <link rel="stylesheet" href="https://unpkg.com/tailwindcss@1.2.0-canary.5/dist/tailwind.min.css" />
 
     <!-- style adjustments and custom utilities -->
     <style>
@@ -96,7 +98,7 @@
             <!-- prettier-ignore -->
             <svg class="w-4 sm:w-6 fill-current inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68 68"><path d="M38 51v15l-1 1h-6l-1-1V51h8zM22 37h24V13H22v24zm12-19a7 7 0 110 14 7 7 0 010-14z"/><path d="M58 7h-1l-8 3 3-8V1H16v1l3 8-8-3h-1v36h1l8-3-3 8v1h35a1 1 0 001-2l-3-7 8 3a1 1 0 001-1V8 7zM48 38l-1 1H21l-1-1V12l1-1h26l1 1v26z"/></svg>
             <span
-              class="hidden md:inline opacity-0 group-hover:opacity-100  group-focus:opacity-100 transition-opacity duration-500 ease-in-out"
+              class="hidden md:inline opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-500 ease-in-out"
             >
               Im richtigen Licht
             </span>
@@ -114,9 +116,8 @@
                     @click="selected = index; highlight = null;"
                     class="border-b border-transparent focus:border-white focus:outline-none lowercase"
                     :class="index === selected ? 'font-bold' : 'font-thin hover:border-white'"
+                    >{{ product.heading }}</a
                   >
-                    {{ product.heading }}
-                  </a>
                 </li>
               </ul>
             </nav>
@@ -148,7 +149,7 @@
               >
                 <div class="block relative aspect-3by2">
                   <transition enter-class="opacity-0" enter-active-class="transition-opacity duration-2000 ease-in-out">
-                    <picture v-show="loaded">
+                    <picture v-show="loaded" class="block">
                       <source :srcset="src.replace('jpg', 'webp')" type="image/webp" />
                       <img @load="loaded = true" :src="src" class="absolute w-full h-full" />
                     </picture>
@@ -348,7 +349,7 @@
 
     <!-- detect whether browser has a permanently-visible scrollbar -->
     <script>
-      !((doc, style) => {
+      ((doc, style) => {
         const el = doc.body.appendChild(Object.assign(doc.createElement('div'), { style }));
         if (el.offsetWidth - el.clientWidth > 0) doc.documentElement.className += ' scrollbar';
         doc.body.removeChild(el);
@@ -357,9 +358,9 @@
 
     <!-- load smoothscroll polyfills if neccessary (Safari) -->
     <script>
-      (d => {
-        if ('scrollBehavior' in document.documentElement.style) return;
-        const insert = src => d.head.append(Object.assign(d.createElement('script'), { src }));
+      (doc => {
+        if ('scrollBehavior' in doc.documentElement.style) return;
+        const insert = src => doc.head.append(Object.assign(doc.createElement('script'), { src }));
         insert('https://unpkg.com/smoothscroll-anchor-polyfill');
         insert('https://unpkg.com/smoothscroll-polyfill/dist/smoothscroll.min.js');
       })(document);
