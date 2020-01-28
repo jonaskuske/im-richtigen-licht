@@ -5,10 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Im richtigen Licht</title>
-    <link
-      rel="icon"
-      href="data:image/png;base64,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"
-    />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.lightmode.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.lightmode.png" />
+    <link rel="manifest" href="icons/site.webmanifest" />
+    <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#000000" />
+    <link rel="shortcut icon" href="icons/favicon.lightmode.ico" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="msapplication-TileColor" content="#000000" />
+    <meta name="msapplication-config" content="icons/browserconfig.xml" />
+    <meta name="theme-color" content="#ffffff" />
 
     <!-- load Inter font -->
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
@@ -384,9 +391,12 @@
       })(document);
     </script>
 
-    <!-- load Vue for easier templating and transitions -->
+    <!-- load Vue for easier templating + transitions and favicon-mode-switcher for dark mode icons -->
     <script type="module">
       import Vue from 'https://unpkg.com/vue/dist/vue.esm.browser.min.js';
+      import faviconModeSwitcher from 'https://unpkg.com/favicon-mode-switcher/dist/index.min.mjs';
+
+      faviconModeSwitcher(document.querySelectorAll('link[href*="lightmode"]'));
 
       // Product image component, needs local state "loaded" to only transition-in once ready
       Vue.component('product-image', { props: ['src'], data: () => ({ loaded: false }) });
