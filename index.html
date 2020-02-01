@@ -118,7 +118,7 @@
 
   <body class="min-h-full">
     <div id="site">
-      <header class="fixed z-10 w-full h-16 py-2 shadow-md bg-black text-white">
+      <header class="fixed z-20 w-full h-16 py-2 shadow-md bg-black text-white">
         <div class="container px-8 mx-auto h-full flex items-center">
           <a
             href="#"
@@ -176,7 +176,7 @@
                 v-for="(src, index) in images"
                 :src="src"
                 :key="src"
-                :class="{ 'col-span-2 row-span-2 z-30': index === 0 }"
+                :class="{ 'col-span-2 row-span-2 z-10': index === 0 }"
               >
                 <div class="block relative aspect-3by2">
                   <transition enter-class="opacity-0" enter-active-class="transition-opacity duration-2000 ease-in-out">
